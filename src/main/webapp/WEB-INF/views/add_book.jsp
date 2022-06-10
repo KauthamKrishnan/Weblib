@@ -13,6 +13,7 @@
     <style>
     :root{
         font-family: 'Inter';
+        color: var(--clr-brown);
 
         --clr-purple: #845EC2;
         --clr-red: #D13A28;
@@ -26,46 +27,78 @@
         background-color: var(--clr-grey);
     }
 
-    h1, h5 {
+    h1, h2 {
         font-family: 'Bebas Neue', cursive;
-        font-size: 2rem;
-        color: var(--clr-brown);
         text-align: center;
     }
 
-    .form {
+    h2 {
+        margin-top: 0.5em;
+    }
 
+    .form {
+        background-color: var(--clr-lightPurple);
+        width:25%;
+        margin:auto;
+        border-radius: 10px;
+        border: 0.2rem solid var(--clr-brown);
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .input-container {
+        text-align: right;
+        margin: 1em;
+    }
+
+    #form-container {
+        margin-right: 5rem;
+    }
+
+    input[type="submit"] {
+        color: white;
+        border: none;
+        display: inline-block;
+        padding: 0.5em 1.2em;
+        border-radius: 4px;
+        background-color: var(--clr-purple);
+        margin-inline: auto;
+        cursor: pointer;
     }
     </style>
 </head>
+
 <body>
     <h1>WEBLIB</h1>
     <div class="form">
-        <h5>ADD BOOK</h5>
-        <f:form modelAttribute="book" action="add" method="post">
-            <div>
+        <h2>ADD BOOK</h2>
+        <f:form autocomplete="off" modelAttribute="book" action="add" method="post">
+        <div id="form-container">
+            <div class="input-container">
                 <label for="name">Name</label>
                 <f:input path="name" />
             </div>
-            <div>
+            <div class="input-container">
                 <label for="genre">Genre</label>
                 <f:input path="genre" />
             </div>
-            <div>
+            <div class="input-container">
                 <label for="author">Author</label>
                 <f:input path="author" />
             </div>
-            <div>
+            <div class="input-container">
                 <label for="page">Page</label>
                 <f:input path="page" />
             </div>
-            <div>
+            <div class="input-container">
                 <label for="price">Price</label>
                 <f:input path="price" />
-            </div><br>
-            <div>
-                <center><input type="submit" value="Add Book"></center>
             </div>
+        </div>
+        <br>
+        <div>
+            <input type="submit" value="ADD">
+        </div>
         </f:form>
     </div> 
 </body>

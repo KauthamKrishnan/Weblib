@@ -11,6 +11,7 @@
     <style>
     :root{
         font-family: 'Inter';
+        color: var(--clr-brown);
 
         --clr-purple: #845EC2;
         --clr-red: #D13A28;
@@ -26,22 +27,19 @@
 
     h1 {
         font-family: 'Bebas Neue', cursive;
-        font-size: 2rem;
-        color: var(--clr-brown);
         text-align: center;
     }
 
     a {
+        color: var(--clr-brown);
         display: inline-block;
         text-decoration: none;
         border: 0.1rem solid var(--clr-brown);
-        color: var(--clr-brown);
         padding: 0.5em 1.2em;
         border-radius: 4px;
     }
 
     #add {
-        padding: 0.5em 1.2em;
         background-color: var(--clr-lightPurple);
         border-radius: 4px;
         transition: color 0.2s, border 0.2s, background-color 0.2s;
@@ -73,7 +71,6 @@
     table {
         margin-top: 2em;
         width: 100%;
-        color: var(--clr-brown);
         border-radius: 6px;
     }
 
@@ -116,6 +113,7 @@
     }
     </style>
 </head>
+
 <body>
     <h1>WEBLIB</h1>
     <div class="form">
