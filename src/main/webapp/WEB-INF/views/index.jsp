@@ -4,38 +4,146 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Weblib</title>
+    <title>WEBLIB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&display=swap" rel="stylesheet">
+    <style>
+    :root{
+        font-family: 'Inter';
+
+        --clr-purple: #845EC2;
+        --clr-red: #D13A28;
+        --clr-grey: #DDDADA;
+        --clr-brown: #4B4453;
+        --clr-lightPurple: #B0A8B9;
+        --clr-paleRed: #C34A36;
+    }
+
+    body {
+        background-color: var(--clr-grey);
+    }
+
+    h1 {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 2rem;
+        color: var(--clr-brown);
+        text-align: center;
+    }
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        border: 0.1rem solid var(--clr-brown);
+        color: var(--clr-brown);
+        padding: 0.5em 1.2em;
+        border-radius: 4px;
+    }
+
+    #add {
+        padding: 0.5em 1.2em;
+        background-color: var(--clr-lightPurple);
+        border-radius: 4px;
+        transition: color 0.2s, border 0.2s, background-color 0.2s;
+    }
+
+    #add:hover {
+        color: white;
+        border: 0.1rem solid var(--clr-grey);
+        background-color: var(--clr-purple);
+    }
+
+    #edit:hover {
+        color: white;
+        border: 0.1rem solid white;
+        background-color: var(--clr-purple);
+    }
+
+    #delete:hover {
+        color: white;
+        border:0.1rem solid white;
+        background-color: var(--clr-red);
+    }
+
+    .form {
+        margin: auto;
+        width: 50%;
+    }
+
+    table {
+        margin-top: 2em;
+        width: 100%;
+        color: var(--clr-brown);
+        border-radius: 6px;
+    }
+
+    th, td {
+        padding: 1rem;
+    }
+
+    th {
+        background-color: var(--clr-lightPurple);
+    }
+
+    td {
+       background-color: white; 
+    }
+
+    th:first-child {
+        border-top-left-radius: 10px;
+    }
+
+    th:last-child {
+        border-top-right-radius: 10px;
+    }
+
+    tr:last-child > td:first-child {
+        border-bottom-left-radius: 10px;
+    }
+
+    tr:last-child > td:last-child {
+        border-bottom-right-radius: 10px;
+    }
+
+    #edit {
+        background-color: var(--clr-lightPurple);
+        transition: color 0.2s, border 0.2s, background-color 0.2s;
+    }
+
+    #delete {
+        background-color: var(--clr-paleRed);
+        transition: color 0.2s, border 0.2s, background-color 0.2s;
+    }
+    </style>
 </head>
-<body style="background-color: #B0BCEB">
-    <div class="container mt-5">
-        <h1 align="center" style="font-weight: bold; ">WEBLIB</h1>
-        <a href="bookform" class="btn btn-info" style="font-weight: bold;">Add New Book</a>
-        <table class="table mt-5 table-info ">
+<body>
+    <h1>WEBLIB</h1>
+    <div class="form">
+        <a id="add" href="bookform">ADD</a>
+        <table>
             <thead>
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Genre</th>
-                <th scope="col">Author</th>
-                <th scope="col">Page</th>
-                <th scope="col">Price</th>
-                <th scope="col">Action</th>
+                <th>#</th>
+                <th>Name</th>
+                <th>Genre</th>
+                <th>Author</th>
+                <th>Page</th>
+                <th>Price</th>
+                <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <c:forEach var="book" items="${list}">
                     <tr>
-                    <th scope="row"><c:out value="${book.id }"/></th>
+                    <td><c:out value="${book.id }"/></td>
                     <td><c:out value="${book.name}"/></td>
                     <td><c:out value="${book.genre}"/></td>
                     <td><c:out value="${book.author}"/></td>
                     <td><c:out value="${book.page}"/></td>
                     <td><c:out value="${book.price}"/></td>
                     <td>
-                        <a href="editbookform/<c:out value="${book.id}"/>" class="btn btn-warning">Edit</a>
-                        <a href="deletebook/<c:out value="${book.id}"/>" class="btn btn-danger">Delete</a>
+                        <a id="edit" href="editbookform/<c:out value="${book.id}"/>">Edit</a>
+                        <a id="delete" href="deletebook/<c:out value="${book.id}"/>">Delete</a>
                     </td>
                     </tr>
                 </c:forEach>
